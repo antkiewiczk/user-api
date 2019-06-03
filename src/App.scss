@@ -1,0 +1,90 @@
+.App {
+    padding: 1rem;
+}
+
+.userList {
+    display: flex;
+    flex-direction: column;
+    &-header {
+        background: #bada55;
+    }
+    &-row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 8px;
+        border-bottom: 1px solid #559dda26;
+        cursor: pointer;
+        div {
+            width: calc(100% / 7);
+            white-space: wrap;
+            &:not(last-child) {
+                border-right: 1px solid #559dda26;
+            }
+        }
+    }
+}
+
+.modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-close {
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+    }
+    &-inner {
+        padding: 24px;
+        width: 500px;
+        background: white;
+        opacity: 1;
+    }
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .inner {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        input {
+            margin-bottom: 8px;
+            margin-top: 4px;
+            border: 1px solid #bada55;
+            padding: 4px;
+        }
+        button {
+            margin-top: 16px;
+        }
+        label {
+            margin-top: 8px;
+        }
+    }
+}
+
+.button {
+    padding: 12px 8px;
+    background: red;
+    color: white;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    border: red;
+    outline: none;
+}
