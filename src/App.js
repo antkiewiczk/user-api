@@ -50,7 +50,7 @@ class App extends Component {
       .then(resp => resp.json());
 
     let i = 1;
-    users.results.map(user => {
+    users.results.forEach(user => {
       user.id = i;
       i++
     })
