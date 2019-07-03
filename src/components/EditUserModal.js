@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class EditUserModal extends Component {
   state = {
-    user: {}
+    user: {},
   };
 
   componentWillMount = () => {
     this.setState({
-      user: this.props.editingUser
+      user: this.props.editingUser,
     });
   };
 
@@ -17,19 +17,19 @@ class EditUserModal extends Component {
     const { name, value } = e.target;
 
     const updatedUser = {
-      ...user
+      ...user,
     };
     // user object is not flat hence this structure
-    if (name === "title" || name === "first" || name === "last") {
+    if (name === 'title' || name === 'first' || name === 'last') {
       updatedUser.name[name] = value;
-    } else if (name === "street" || name === "city" || name === "state") {
+    } else if (name === 'street' || name === 'city' || name === 'state') {
       updatedUser.location[name] = value;
     } else {
       updatedUser[name] = value;
     }
 
     this.setState({
-      user: updatedUser
+      user: updatedUser,
     });
   };
 
@@ -52,6 +52,10 @@ class EditUserModal extends Component {
         <div className="modal-inner">
           <form className="form" onSubmit={this.onSubmit}>
             <div className="inner">
+              <div className="picture-wrapper">
+                <img src={user.picture.large} alt="medium" />
+              </div>
+
               <label htmlFor="title">Title</label>
               <input
                 name="title"
@@ -122,7 +126,7 @@ EditUserModal.propTypes = {
   display: PropTypes.bool.isRequired,
   editingUser: PropTypes.shape({}).isRequired,
   onModalToggle: PropTypes.func.isRequired,
-  onFormSubmit: PropTypes.func.isRequired
+  onFormSubmit: PropTypes.func.isRequired,
 };
 
 export default EditUserModal;

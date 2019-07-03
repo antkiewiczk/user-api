@@ -17,8 +17,6 @@ class App extends Component {
 
     this.state = {
       isLoading: false,
-      modalOpened: false,
-      editingUser: {},
     };
   }
 
@@ -32,12 +30,14 @@ class App extends Component {
     })
       .then(resp => resp.json())
       .then(resp => {
-        if (!resp.length) {
+        if (Object.keys(resp).length === 0 || resp.length === 0) {
           this.setState(
             {
               isLoading: true,
             },
-            this.getInitialUserData(),
+            () => {
+              this.getInitialUserData();
+            },
           );
         }
         this.setState({ isLoading: false });
@@ -48,7 +48,7 @@ class App extends Component {
   };
 
   getInitialUserData = async () => {
-    const users = await fetch('https://randomuser.me/api/?results=10').then(
+    const users = await fetch('https://randomuser.me/api/?results=20').then(
       resp => resp.json(),
     );
 
@@ -75,7 +75,7 @@ class App extends Component {
   };
 
   render() {
-    const { isLoading, modalOpened, editingUser } = this.state;
+    const { isLoading } = this.state;
 
     if (isLoading) {
       return <noscript />;

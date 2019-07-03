@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import { name, version } from '../package.json';
 import rootReducer from './reducers';
 
-export default function configureStore(initialState, helpersConfig) {
+export default function configureStore(initialState) {
   const middleware = [thunk];
 
   let enhancer;

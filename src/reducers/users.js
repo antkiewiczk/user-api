@@ -1,4 +1,4 @@
-import { INITIATE_USERS, UPDATE_USER, DELETE_USER } from "../constants";
+import { INITIATE_USERS, UPDATE_USER, DELETE_USER } from '../constants';
 
 const INITIAL_STATE = { users: [] };
 
@@ -9,7 +9,7 @@ const updateOne = (data, payload) =>
     }
     return {
       ...item,
-      ...payload
+      ...payload,
     };
   });
 
@@ -25,12 +25,12 @@ export default function users(state = INITIAL_STATE, action) {
       return { data: action.payload };
     case UPDATE_USER:
       return {
-        data: updateOne(state.data, action.payload)
+        data: updateOne(state.data, action.payload),
       };
     case DELETE_USER:
       return {
         ...state,
-        data: deleteOne(state.data, action.payload)
+        data: deleteOne(state.data, action.payload),
       };
     default:
       return state;

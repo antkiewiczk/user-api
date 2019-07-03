@@ -1,10 +1,10 @@
-import { INITIATE_USERS, UPDATE_USER, DELETE_USER } from "../constants";
+import { INITIATE_USERS, UPDATE_USER, DELETE_USER } from '../constants';
 
 function addInitialUserData(users) {
   return dispatch => {
     dispatch({
       type: INITIATE_USERS,
-      payload: users
+      payload: users,
     });
   };
 }
@@ -13,7 +13,7 @@ function updateUser(user) {
   return dispatch => {
     dispatch({
       type: UPDATE_USER,
-      payload: user
+      payload: user,
     });
   };
 }
@@ -22,7 +22,7 @@ function deleteUser(id) {
   return dispatch => {
     dispatch({
       type: DELETE_USER,
-      payload: id
+      payload: id,
     });
   };
 }

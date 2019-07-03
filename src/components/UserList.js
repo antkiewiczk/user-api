@@ -39,7 +39,7 @@ class UserList extends Component {
   };
 
   onFormSubmit = async user => {
-    const response = await fetch(`http://localhost:3001/users/${user.id}`, {
+    const response = await fetch(`http://localhost:3001/users/:${user.id}`, {
       method: 'PUT',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -58,6 +58,14 @@ class UserList extends Component {
   render() {
     const { modalOpened, editingUser } = this.state;
     const { users } = this.props;
+
+    if (!users.length) {
+      return (
+        <div className="userList">
+          You are out of users! Please reload the page.
+        </div>
+      );
+    }
 
     return (
       <div className="userList">

@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const UserListItem = props => {
   const { user, onEditToggle, onDelete } = props;
@@ -20,7 +20,7 @@ const UserListItem = props => {
         <img src={user.picture.thumbnail} alt="user-thumbnail" />
       </div>
       <div>
-        <button className="button" onClick={e => onDelete(e, user.id)}>
+        <button className="button red" onClick={e => onDelete(e, user.id)}>
           Delete
         </button>
       </div>
@@ -34,24 +34,24 @@ UserListItem.propTypes = {
     name: PropTypes.shape({
       title: PropTypes.string,
       first: PropTypes.string,
-      last: PropTypes.string
+      last: PropTypes.string,
     }),
     location: PropTypes.shape({
       street: PropTypes.string,
-      city: PropTypes.string
+      city: PropTypes.string,
     }),
     picture: PropTypes.shape({
-      thumbnail: PropTypes.string
+      thumbnail: PropTypes.string,
     }),
     email: PropTypes.string,
     gender: PropTypes.string,
     phone: PropTypes.string,
     login: PropTypes.shape({
-      username: PropTypes.string
-    })
+      username: PropTypes.string,
+    }),
   }).isRequired,
   onEditToggle: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default UserListItem;
